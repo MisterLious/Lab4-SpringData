@@ -1,0 +1,157 @@
+GET http://localhost:8081/api/customer/all
+[
+  {
+    "id": 1,
+    "name": "Jak Kowalski",
+    "address": "Wrocław"
+  },
+  {
+    "id": 2,
+    "name": "Joanna Kowalska",
+    "address": "Wrocław"
+  }
+]
+
+GET http://localhost:8081/api/customer/?index=2
+{
+  "id": 2,
+  "name": "Joanna Kowalska",
+  "address": "Wrocław"
+}
+
+POST http://localhost:8081/api/admin/customer/
+Content-Type: application/json
+
+{ "name" : "Baba Jaga", "address": "Dom na kurzej nóżce" }
+{
+  "id": 4,
+  "name": "Baba Jaga",
+  "address": "Dom na kurzej nóżce"
+}
+
+PUT http://localhost:8081/api/admin/customer/
+Content-Type: application/json
+
+{ "id": 4, "name" : "Stara Baba Jaga", "address": "Dom na kurzej nóżce" }
+{
+  "id": 4,
+  "name": "Stara Baba Jaga",
+  "address": "Dom na kurzej nóżce"
+}
+
+PATCH http://localhost:8081/api/admin/customer/?index=2
+<Response body is empty>
+
+GET http://localhost:8081/api/order/all
+[
+  {
+    "id": 1,
+    "customer": {
+      "id": 1,
+      "name": "Jak Kowalski",
+      "address": "Wrocław"
+    },
+    "products": [
+      {
+        "id": 2,
+        "name": "Rura",
+        "price": 5.0,
+        "available": true
+      },
+      {
+        "id": 1,
+        "name": "Korek",
+        "price": 2.55,
+        "available": true
+      }
+    ],
+    "placeDate": "2021-04-24T23:23:59.98658",
+    "status": "in progress"
+  }
+]
+
+GET http://localhost:8081/api/order/?index=1
+{
+  "id": 1,
+  "customer": {
+    "id": 1,
+    "name": "Jak Kowalski",
+    "address": "Wrocław"
+  },
+  "products": [
+    {
+      "id": 1,
+      "name": "Korek",
+      "price": 2.55,
+      "available": true
+    },
+    {
+      "id": 2,
+      "name": "Rura",
+      "price": 5.0,
+      "available": true
+    }
+  ],
+  "placeDate": "2021-04-24T23:23:59.98658",
+  "status": "in progress"
+}
+
+POST http://localhost:8081/api/admin/order/
+Content-Type: application/json
+
+{"status": true }
+{
+  "id": 2,
+  "customer": null,
+  "products": null,
+  "placeDate": null,
+  "status": "true"
+}
+
+PATCH http://localhost:8081/api/admin/order/?index=1
+<Response body is empty>
+
+
+GET http://localhost:8081/api/product/all
+[
+  {
+    "id": 1,
+    "name": "Korek",
+    "price": 2.55,
+    "available": true
+  },
+  {
+    "id": 2,
+    "name": "Rura",
+    "price": 5.0,
+    "available": true
+  }
+]
+
+GET http://localhost:8081/api/product/?index=2
+{
+  "id": 2,
+  "name": "Rura",
+  "price": 5.0,
+  "available": true
+}
+
+POST http://localhost:8081/api/admin/product/
+Content-Type: application/json
+
+{ "name" : "Przyklad", "price": 5 , "available": true }
+{
+  "id": 3,
+  "name": "Przyklad",
+  "price": 5.0,
+  "available": true
+}
+
+
+PUT http://localhost:8081/api/admin/product/
+Content-Type: application/json
+
+{ "id": 2, "name" : "Przyklad", "price": 7.5 ,"available":  true}
+
+PATCH http://localhost:8081/api/admin/product/?index=1
+<Response body is empty>

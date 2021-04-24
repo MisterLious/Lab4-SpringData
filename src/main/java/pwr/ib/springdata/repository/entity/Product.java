@@ -1,4 +1,4 @@
-package pwr.ib.springdata;
+package pwr.ib.springdata.repository.entity;
 
 import javax.persistence.*;
 
