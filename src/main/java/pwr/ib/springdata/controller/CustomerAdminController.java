@@ -1,5 +1,6 @@
-package pwr.ib.springdata.controller.admin_controller;
+package pwr.ib.springdata.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pwr.ib.springdata.repository.entity.Customer;
 import pwr.ib.springdata.service.CustomerService;
@@ -10,17 +11,21 @@ public class CustomerAdminController {
 
         private CustomerService customerService;
 
-        @PostMapping("/customer")
+    @Autowired
+    public CustomerAdminController(CustomerService customerService){
+        this.customerService= customerService;
+    }
+        @PostMapping()
         public Customer add(@RequestBody Customer customer){
             return customerService.save(customer);
         }
 
-        @PutMapping("/customer")
+        @PutMapping()
         public Customer update(@RequestBody Customer customer){
             return customerService.save(customer);
         }
 
-        @PatchMapping("/customer")
+        @PatchMapping()
         public void delete(@RequestParam Long index){
             customerService.deleteById(index);
         }

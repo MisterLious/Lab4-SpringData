@@ -3,11 +3,13 @@ package pwr.ib.springdata.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Service;
 import pwr.ib.springdata.repository.OrderRepo;
 import pwr.ib.springdata.repository.entity.Order;
 
 import java.util.Optional;
 
+@Service
 public class OrderService {
 
     private OrderRepo orderRepo;
