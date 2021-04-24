@@ -4,6 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
+import pwr.ib.springdata.repository.CustomerRepo;
+import pwr.ib.springdata.repository.OrderRepo;
+import pwr.ib.springdata.repository.ProductRepo;
+import pwr.ib.springdata.repository.entity.Customer;
+import pwr.ib.springdata.repository.entity.Order;
+import pwr.ib.springdata.repository.entity.Product;
 
 
 import java.time.LocalDateTime;
